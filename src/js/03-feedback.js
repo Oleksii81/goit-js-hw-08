@@ -1,10 +1,11 @@
 import throttle from 'lodash.throttle';
 import { saveToLS, loadFromLS} from './local-stor-function.js';
 
-
 const form = document.querySelector('.feedback-form');
 const mailInput = document.querySelector('input[name="email"]');
 const textArea = document.querySelector('input[name="message"]');
+
+
 
 form.addEventListener('submit', event => {
     event.preventDefault();
@@ -15,7 +16,6 @@ form.addEventListener('submit', event => {
 });
 
 let formData = loadFromLS('feedback-form-state') ?? {};
-
 form.addEventListener('input', throttle(inputFormValue, 500));
 
 function inputFormValue (event) {
@@ -25,6 +25,8 @@ function inputFormValue (event) {
     saveToLS('feedback-form-state', formData);
 }
 
+mailInput.value = formData.email ?? ''; 
+textArea.value = formData.message ?? '';
 
 
 
