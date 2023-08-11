@@ -3,9 +3,7 @@ import { saveToLS, loadFromLS} from './local-stor-function.js';
 
 const form = document.querySelector('.feedback-form');
 const mailInput = document.querySelector('input[name="email"]');
-const textArea = document.querySelector('input[name="message"]');
-
-
+const textArea = document.querySelector('textarea[name="message"]');
 
 form.addEventListener('submit', event => {
     event.preventDefault();
